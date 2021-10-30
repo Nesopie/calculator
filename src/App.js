@@ -87,7 +87,7 @@ function App() {
             if(!isNaN(+stack[i])) {
                 postfix.push(+stack[i]);
             }else {
-                while(tempStack.length !== 0 && getPrecedence(stack[i]) <= getPrecedence(tempStack[-1])) {
+                while(tempStack.length !== 0 && getPrecedence(stack[i]) <= getPrecedence(tempStack[tempStack.length - 1])) {
                     postfix.push(tempStack.pop());
                 }
                 tempStack.push(stack[i]);
@@ -102,6 +102,7 @@ function App() {
 
     function evaluatePostfix() {
         let postfix = infixToPostfix();
+        console.log(postfix);
         let tempStack = [];
 
         for(let i = 0; i < postfix.length; i++) {
