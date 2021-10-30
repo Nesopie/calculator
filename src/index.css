@@ -1,0 +1,243 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap');
+
+:root {
+    --background: hsl(222, 26%, 31%);
+    --screen-background: hsl(224, 36%, 15%);
+    --screen-color: white;
+    --button-container-color: hsl(223, 31%, 20%);
+    --button-color: hsl(225, 21%, 49%);
+    --button-background: hsl(30, 25%, 89%);
+    --special-button-background: hsl(225, 21%, 49%);
+    --submit-background: hsl(6, 63%, 50%);
+    --button-shadow: hsl(28, 16%, 65%);
+    --special-shadow: hsl(224, 28%, 35%);
+    --submit-shadow: hsl(6, 70%, 34%);
+    --title-color: white;
+    --toggle-background: hsl(223, 31%, 20%);
+    --toggle-btn: hsl(6, 63%, 50%);
+    --visibility-1: visible;
+    --visibility-2: hidden;
+    --visibility-3: hidden;
+}
+
+[data-theme='theme1'] {
+    --background: hsl(222, 26%, 31%);
+    --screen-background: hsl(224, 36%, 15%);
+    --screen-color: white;
+    --button-container-color: hsl(223, 31%, 20%);
+    --button-color: hsl(225, 21%, 49%);
+    --button-background: hsl(30, 25%, 89%);
+    --special-button-background: hsl(225, 21%, 49%);
+    --submit-background: hsl(6, 63%, 50%);
+    --button-shadow: hsl(28, 16%, 65%);
+    --special-shadow: hsl(224, 28%, 35%);
+    --submit-shadow: hsl(6, 70%, 34%);
+    --title-color: white;
+    --toggle-background: hsl(223, 31%, 20%);
+    --toggle-btn: hsl(6, 63%, 50%);
+    --visibility-1: visible;
+    --visibility-2: hidden;
+    --visibility-3: hidden;
+}
+
+[data-theme='theme2'] {
+    --background: hsl(0, 0%, 90%);
+    --screen-background: hsl(0, 0%, 93%);
+    --screen-color: black;
+    --button-container-color: hsl(0, 5%, 81%);
+    --button-color: black;
+    --button-background: hsl(45, 7%, 89%);
+    --special-button-background: hsl(185, 42%, 37%);
+    --submit-background: hsl(25, 98%, 40%);
+    --button-shadow: hsl(35, 11%, 61%);
+    --special-shadow: hsl(185, 58%, 25%);
+    --submit-shadow: hsl(25, 99%, 27%);
+    --title-color: black;
+    --toggle-background: hsl(0, 5%, 81%);
+    --toggle-btn: hsl(25, 98%, 40%);
+    --visibility-1: hidden;
+    --visibility-2: visible;
+    --visibility-3: hidden;
+}
+
+[data-theme='theme3'] {
+    --background: hsl(268, 75%, 9%);
+    --screen-background: hsl(268, 71%, 12%);
+    --screen-color: hsl(52, 100%, 62%);
+    --button-container-color: hsl(268, 71%, 12%);
+    --button-color: hsl(52, 100%, 62%);
+    --button-background: hsl(268, 47%, 21%);
+    --special-button-background: hsl(281, 89%, 26%);
+    --submit-background: hsl(176, 100%, 44%);
+    --button-shadow: hsl(290, 70%, 36%);
+    --special-shadow: hsl(285, 91%, 52%);
+    --submit-shadow: hsl(177, 92%, 70%);
+    --title-color: hsl(52, 100%, 62%);
+    --toggle-background: hsl(268, 71%, 12%);
+    --toggle-btn: hsl(176, 100%, 44%);
+    --visibility-1: hidden;
+    --visibility-2: hidden;
+    --visibility-3: visible;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Spartan';
+    font-weight: 700;
+    background-color: var(--background);
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+    margin: 5vh auto 0 auto;
+    flex-direction: column;
+    gap: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    color: var(--title-color);
+}
+
+.title {
+    font-size: 25px;
+}
+
+.themeContainer {
+    display: flex;
+    font-size: 12px;
+    flex-direction: row;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.selectTheme {
+    display: grid;
+    grid-template-rows: 10px 25px;
+    gap: 10px;
+}
+
+.themeNumbers {
+    display: flex;
+    gap: 20px;
+}
+
+.themeDisplay {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--toggle-background);
+    padding-left: 3px;
+    align-items: center;
+    border-radius: 10px;
+}
+
+.themeDisplay > div {
+    z-index: 9999;
+    background-color: var(--toggle-btn);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+
+#theme1 {
+    visibility: var(--visibility-1);
+}
+
+#theme2 {
+    visibility: var(--visibility-2);
+}
+
+#theme3 {
+    visibility: var(--visibility-3);
+}
+
+.themeDisplay::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: var(--toggle-background);
+    right: 25px;
+    z-index: -1;
+}
+.themeDisplay::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    background-color: var(--toggle-background);
+    left: 25px;
+    z-index: -1;
+}
+
+.display {
+    display: flex;
+    height: 60px;
+    background-color: var(--screen-background);
+    border-radius: 10px;
+    color: var(--screen-color);
+    align-items: center;
+    padding: 20px;
+}
+
+.display > div {
+    width: 100%;
+    text-align: right;
+    font-size: 25px;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0, 25%));
+    gap: 20px;
+    background-color: var(--button-container-color);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+button {
+    padding: 20px;
+    font-family: 'Spartan';
+    font-weight: 700;
+    color: var(--button-color);
+    font-size: 1.2em;
+    text-align: center;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 4px 0 0 var(--button-shadow);
+    line-height: 1em;
+    background-color: var(--button-background);
+}
+
+.reset, .submit {
+    grid-column: span 2;
+}
+
+.delete {
+    padding: 0;
+}
+
+.delete, .reset {
+    background-color: var(--special-button-background);
+    color: white;
+    box-shadow: 0 4px 0 0 var(--special-shadow);
+}
+
+.submit {
+    background-color: var(--submit-background);
+    color: white;
+    box-shadow: 0 4px 0 0 var(--submit-shadow);
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 400px;
+
+    }
+}
